@@ -16,7 +16,7 @@
         
     },
     {
-        "output": "Heart_Diseases_Prediction/wsgi.py",
+        "output": "Heart_Diseases_Prediction/wsgi.py"
     }
 ],
     "routes": [
