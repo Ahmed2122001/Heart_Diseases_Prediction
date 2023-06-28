@@ -14,7 +14,8 @@
         }
         
     },
-    { "src": "build-command", "use": "@vercel/python3.9" }
+    { "src": "path/to/your/app", "use": "@vercel/python-runtime" },
+    { "src": "path/to/your/app", "use": "python3.9" }
 ],
     "routes": [
         {
