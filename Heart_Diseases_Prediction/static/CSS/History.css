@@ -1,0 +1,51 @@
+/* CSS styles */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(100, 190, 246, 0.4);
+  }
+
+  body{
+    margin: 0%;
+    margin-top: 90px;
+    min-height: 100vh;
+  }
+  h2{
+    font-size: 30px;
+  }
+  .history-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .history-item {
+    margin-bottom: 10px;
+  }
+  
+  .history-item .timestamp {
+    font-weight: bold;
+  }
+  
+  .history-item .patient {
+    font-size: 25px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
+  .history-item .details {
+    display: none;
+    margin-top: 5px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgba(114, 178, 218, 0.4);
+    transition: all 0.8s ease;
+  }
+  
+  .history-item.show-details .details {
+    display: block;
+  }
+
+  p{
+    padding-top: 10px;
+  }

@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+    {
+        "src": "Heart_Diseases_Prediction/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "config": { "maxLambdaSize": "15mb" }
+    },
+    {
+        "src": "build_files.sh",
+        "use":"@vercel/static-build",
+        "config": {
+            "distDir": "staticfiles_build"
+        }
+        
+    },
+    { "src": "build-command", "use": "@vercel/python3.9" }
+],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "Heart_Diseases_Prediction/wsgi.py"
+        }
+    ]
+}

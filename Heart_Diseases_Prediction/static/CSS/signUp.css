@@ -1,0 +1,55 @@
+/* Add your custom CSS styles here */
+body{
+  margin: 0%;
+  margin-top: 90px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(100, 190, 246, 0.4);
+}
+
+  h2 {
+    /* margin-top: 90px; */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #3E8DA8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: red;
+  }

@@ -1,0 +1,61 @@
+/* Add your custom CSS styles here */
+body{
+  margin: 0%;
+  margin-top: 90px;
+  min-height: 100vh;
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(100, 190, 246, 0.4);
+}
+  
+  h1 {
+    /* margin-top: 90px; */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  input[type="number"],
+  select,
+  input[type="text"]{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #3E8DA8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: red;
+  }
+  

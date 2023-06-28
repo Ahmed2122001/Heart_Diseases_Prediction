@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+
+    <link rel="stylesheet" href="{% static 'Css/_Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/signUp.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Css/alert.css' %}">
+    
+    <title>Heart Diseases Prediction</title>
+</head>
+<body>
+    {% include 'partials\_Navbar.html' %}
+
+    <div class="container">
+
+      <h2>Sign Up</h2>
+      <hr>
+      {% include 'partials\_alert.html' %}
+
+
+      {% if is_added == True %}
+      <form id="signUpForm" method="POST" style="display: none;">
+      {% else %}
+      <form id="signUpForm" method="POST">
+      {% endif %}
+        {% csrf_token %}
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{username}}" required>
+  
+        
+  
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{age}}" required>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{email}}" required>
+  
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+  
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" value="{{phone}}" required>
+
+        <label for="city">City:</label>
+        <input id="city" name="city" value="{{city}}" required></input>
+  
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{password}}" required>
+  
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" value="{{confirm_password}}" required>
+        <button type="submit" name="btnsignup">Sign Up</button>
+
+
+        <h4 class="alert-simple alert-info" style="margin-top: 20px; padding: 5px;"> 
+          Have an account? 
+          <a href="{% url 'Login' %}" style="color: black;">Log In</a>
+        </h4>
+      </form>
+
+      
+      
+    </div>
+
+    <script src="{% static 'JS/_Navbar.js' %}"></script>
+    <script src="{% static 'JS/signUp.js' %}"></script>
+    <script src="{% static 'JS/alert.js' %}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'Css/_Navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Css/Predict_4_Heart_Diseases.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Css/alert.css' %}">
+    
+    <title>Heart Diseases Prediction</title>
+</head>
+<body>
+    {% include 'partials\_Navbar.html' %}
+
+      
+  <div class="container">
+    
+    <form id="Predict_Coronary_Artery_Disease_form" method="POST">
+      {% csrf_token %}
+      <h1>Predict Coronary Artery Disease</h1>
+      <hr>
+      {% include 'partials\_alert_withoutTag.html' %}
+      <div class="form-group">
+        <label for="Patientname">Patient name:</label>
+        <input type="text" id="Patientname" name="Patientname" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+          <option value="">Select</option>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="cp">Chest Pain Type:</label>
+        <select id="cp" name="cp" required>
+          <option value="">Select</option>
+          <option value="1">Typical Angina</option>
+          <option value="2">Atypical Angina</option>
+          <option value="3">Non-Anginal Pain</option>
+          <option value="4">Asymptomatic</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trestbps">Resting Blood Pressure:</label>
+        <input type="number" id="trestbps" name="trestbps" required>
+      </div>
+      <div class="form-group">
+        <label for="chol">Serum Cholestoral:</label>
+        <input type="number" id="chol" name="chol" required>
+      </div>
+      <div class="form-group">
+        <label for="fbs">Fasting Blood Sugar:</label>
+        <select id="fbs" name="fbs" required>
+          <option value="">Select</option>
+          <option value="1">True</option>
+          <option value="0">False</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="restecg">Resting ECG Results:</label>
+        <select id="restecg" name="restecg" required>
+          <option value="">Select</option>
+          <option value="0">Normal</option>
+          <option value="1">ST-T Wave Abnormality</option>
+          <option value="2">Probable or Definite Left Ventricular Hypertrophy</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="thalach">Maximum Heart Rate Achieved:</label>
+        <input type="number" id="thalach" name="thalach" required>
+      </div>
+      <div class="form-group">
+        <label for="oldpeak">ST Depression:</label>
+        <input type="number" id="oldpeak" name="oldpeak" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="slope">Slope of Peak Exercise ST Segment:</label>
+        <select id="slope" name="slope" required>
+          <option value="">Select</option>
+          <option value="1">Upsloping</option>
+          <option value="2">Flat</option>
+          <option value="3">Down Sloping</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ca">Number of Major Vessels:</label>
+        <input type="number" id="ca" name="ca" min="0" max="3" required>
+      </div>
+      <div class="form-group">
+        <label for="exang">Exercise Induced Angina:</label>
+        <select id="exang" name="exang" required>
+          <option value="">Select</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="thal">Results of Nuclear Stress Test:</label>
+        <select id="thal" name="thal" required>
+          <option value="">Select</option>
+          <option value="1">Normal</option>
+          <option value="2">Fixed Defect</option>
+          <option value="3">Reversible Defect</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" name="btnpredict">Predict</button>
+      </div>
+    </form>
+  </div>
+  <script src="{% static 'JS/_Navbar.js' %}"></script>
+  <script src="{% static 'JS/alert.js' %}"></script>
+  
+</body>
+</html>

@@ -1,0 +1,113 @@
+
+{% load static %}
+<nav>
+    <div class="navbar">
+      <i class='bx bx-menu'></i>
+      <div class="logo"><a href="#">Heart Diseases Prediction</a></div>
+      <div class="nav-links">
+        <div class="sidebar-logo">
+          <span class="logo-name">Heart Diseases Prediction</span>
+          <i class='bx bx-x' ></i>
+        </div>
+        <ul class="links">
+          <li
+          {% if '/' == request.path %}
+            class="S_li active"
+          {% else %}
+            class="S_li"
+          {% endif %}
+          >
+            <a href="{% url 'index' %}">HOME</a>
+          </li>
+          
+          {% if request.user.is_authenticated %}
+          <li
+          {% if  'Predict_Cardiovascular_Disease' in request.path or 'Predict_Coronary_Artery_Disease' in request.path or 'Predict_Heart_Attack' in request.path or 'Predict_Heart_Failure' in request.path or 'Predict_4_Heart_Diseases' in request.path %}
+            class="active"
+          {% else %}
+            class=""
+          {% endif %}
+          >
+            <a href="#" class="show_D">Predict Heart Diseases </a>
+            <i class='bx bxs-chevron-down htmlcss-arrow arrow  show_D'></i>
+            <ul class="htmlCss-sub-menu sub-menu">
+              <li class="Droub_Li"><a href="{% url 'Predict_Cardiovascular_Disease' %}">Predict Cardiovascular Disease </a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Predict_Coronary_Artery_Disease' %}">Predict Coronary Artery Disease</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Predict_Heart_Attack' %}">Predict Heart Attack</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Predict_Heart_Failure' %}">Predict Heart Failure</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Predict_4_Heart_Diseases' %}">Predict 4 Heart Diseases</a></li>
+            </ul>
+          </li>
+                <li 
+                {% if 'History' in request.path %}
+                  class="S_li active"
+                {% else %}
+                class="S_li"
+              {% endif %}
+              >
+                <a href="{% url 'History' %}">History</a>
+              </li>
+          {% else %}
+          <li
+          {% if  'Predict_Cardiovascular_Disease' in request.path or 'Predict_Coronary_Artery_Disease' in request.path or 'Predict_Heart_Attack' in request.path or 'Predict_Heart_Failure' in request.path or 'Predict_4_Heart_Diseases' in request.path %}
+            class="active"
+          {% else %}
+            class=""
+          {% endif %}
+          >
+            <a href="#" class="show_D">Predict Heart Diseases </a>
+            <i class='bx bxs-chevron-down htmlcss-arrow arrow  show_D'></i>
+            <ul class="htmlCss-sub-menu sub-menu">
+              <li class="Droub_Li"><a href="{% url 'Login' %}">Predict Cardiovascular Disease </a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Login' %}">Predict Coronary Artery Disease</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Login' %}">Predict Heart Attack</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Login' %}">Predict Heart Failure</a></li>
+              
+              <li class="Droub_Li"><a href="{% url 'Login' %}">Predict 4 Heart Diseases</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          
+
+          <li
+          {% if 'signUp' in request.path or 'Login' in request.path or 'profile' in request.path  %}
+            class="active"
+          {% else %}
+            class=""
+          {% endif %}
+          >
+            <a href="#" class="show_D1">
+              {% if request.user.is_authenticated %}
+                Profile
+              {% else %}
+                Registration
+              {% endif %}
+              
+            </a>
+            <i class='bx bxs-chevron-down js-arrow arrow show_D1'></i>
+            <ul class="js-sub-menu sub-menu">
+              {% if request.user.is_authenticated %}
+                <li class="Droub_Li"><a href="{% url 'profile' %}">Profile</a></li>
+                
+                <li class="Droub_Li"><a href="{% url 'logout' %}">Logout</a></li>
+                
+              {% else %}
+                <li class="Droub_Li"><a href="{% url 'signUp' %}">Sign Up</a></li>
+                <li class="Droub_Li"><a href="{% url 'Login' %}">Log In</a></li>
+              {% endif %}
+              
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </nav>

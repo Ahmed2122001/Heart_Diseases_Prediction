@@ -1,0 +1,63 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'Css/_Navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Css/Login.css' %}">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'Css/alert.css' %}">
+    
+    <title>Heart Diseases Prediction</title>
+</head>
+<body>
+    {% include 'partials\_Navbar.html' %}
+
+    
+
+    <div class="container">
+      {% if request.user.is_authenticated %}
+        <div class="alert-simple alert-info">
+          <p class="p_alert">
+            Welcome, {{request.user.username}}, you are now logged in,
+            <a href="{% url 'logout' %}" style="color: black;">Logout</a>
+
+
+          </p>
+        </div>
+      {% else %}
+        <form id="login-form" method="POST">
+          {% csrf_token %}
+          <h1>Log In</h1>
+          <hr>
+          {% include 'partials\_alert.html' %}
+        
+          <div class="form-group">
+            <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit" name="btnlogin">Log In</button>
+        </form>
+        <h4 class="alert-simple alert-info" style="padding: 5px; margin-top: 20px;"> 
+          Dont have an account? 
+          <a href="{% url 'signUp' %}" style="color: black;">Sign Up</a>
+        </h4>
+      {% endif %}
+    </div>
+
+    <script src="{% static 'JS/_Navbar.js' %}"></script>
+    <script src="{% static 'JS/Login.js' %}"></script>
+    <script src="{% static 'JS/alert.js' %}"></script>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,30 @@
+{% if messages %}
+    {% for msg in messages %}
+      <div class="D_alert mt-5">
+        <div class="row">
+    
+          <div class="col-sm-12">
+            <div class="alert fade alert-simple alert-{{msg.tags}} alert-dismissible text-left font__family-montserrat font__size-16 font__weight-light brk-library-rendered rendered show">
+              
+              <p class="p_alert"><strong class="font__weight-semibold">
+                {% if 'danger' == msg.tags %}
+                  Error
+                {% else %}
+                  {{msg.tags|title}}
+                {% endif %}
+                :</strong> {{msg}}</p>
+    
+              <button type="button" class="close font__size-18" data-dismiss="alert">
+                <span aria-hidden="true">
+                  <a>
+                    <i class="fa fa-times i-{{msg.tags}}"></i>
+                  </a>
+                </span>
+              </button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    {% endfor %}
+{% endif %}

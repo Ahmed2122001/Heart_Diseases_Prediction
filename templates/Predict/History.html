@@ -1,0 +1,199 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/alert.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/_Navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/History.css' %}">
+    
+    <title>Heart Diseases Prediction</title>
+</head>
+<body>
+  {% include 'partials\_Navbar.html' %}
+    <div class="container">
+        <h2>History</h2>
+        <hr>
+        {% if request.user.is_authenticated %}
+          <ul class="history-list">
+            {% for pa in patients %}
+            <li class="history-item">
+              <div class="patient">{{pa.patient_name}}</div>
+              <div class="details">
+                <!-- <p>Name: Mazen</p> -->
+                <P>Age: {{ pa.age }}</P>
+                {% if pa.sex == 1 %}
+                  <p>Sex: Male</p>
+                {% elif pa.sex == 0 %}
+                  <p>Sex: Female</p>
+                {% endif %}
+                {% if pa.current_smoker == 1 %}
+                  <p>Current Smoker: Yes</p>
+                {% elif pa.current_smoker == 0 %}
+                  <p>Current Smoker: No</p>
+                {% endif %}
+                
+                {% if pa.cigarettes_per_day == Nan %}
+                {% else %}
+                  <p>Cigarettes Per Day: {{pa.cigarettes_per_day}}</p>
+                {% endif %}
+                
+
+                {% if pa.bp_meds == 1 %}
+                  <p>BP Meds: Yes</p>
+                {% elif pa.bp_meds == 0 %}
+                  <p>BP Meds: No</p>
+                {% endif %}
+                {% if pa.prevalent_stroke == 1 %}
+                  <p>Prevalent Stroke: Yes</p>
+                {% elif pa.prevalent_stroke == 0 %}
+                  <p>Prevalent Stroke: No</p>
+                {% endif %}
+                {% if pa.prevalent_hyp == 1 %}
+                  <p>Prevalent Hyp: Yes</p>
+                {% elif pa.prevalent_hyp == 0 %}
+                  <p>Prevalent Hyp: No</p>
+                {% endif %}
+                
+                {% if pa.diabetes == 1 %}
+                  <p>Diabetes: Yes</p>
+                {% elif pa.diabetes == 0 %}
+                  <p>Diabetes: No</p>
+                {% endif %}
+
+                {% if pa.tot_chol == Nan %}
+                {% else %}
+                  <p>Tot Chol: {{pa.tot_chol}}</p>
+                {% endif %}
+                
+                {% if pa.sys_bp == Nan %}
+                {% else %}
+                  <p>Sys BP: {{pa.sys_bp}}</p>
+                {% endif %}
+
+                
+                {% if pa.dia_bp == Nan %}
+                {% else %}
+                  <p>Dia BP: {{pa.dia_bp}}</p>
+                {% endif %}
+                
+                {% if pa.bmi == Nan %}
+                {% else %}
+                  <p>BMI: {{pa.bmi}}</p>
+                {% endif %}
+                
+                {% if pa.heart_rate == Nan %}
+                {% else %}
+                  <p>Heart Rate: {{pa.heart_rate}}</p>
+                {% endif %}
+                
+                {% if pa.glucose == Nan %}
+                {% else %}
+                  <p>Glucose: {{pa.glucose}}</p>
+                {% endif %}
+                
+
+
+                {% if pa.cp == 1 %}
+                  <p>Chest Pain Type: Typical Angina</p>
+                {% elif pa.cp == 2 %}
+                  <p>Chest Pain Type: Atypical Angina</p>
+                {% elif pa.cp == 3 %}
+                  <p>Chest Pain Type: Non-Anginal Pain</p>
+                {% elif pa.cp == 4 %}
+                  <p>Chest Pain Type: Asymptomatic</p>
+                {% endif %}
+
+                {% if pa.chol == Nan %}
+                {% else %}
+                  <p>Serum Cholestoral: {{pa.chol}}</p>
+                {% endif %}
+                
+
+                {% if pa.fbs == 1 %}
+                  <p>Fasting Blood Sugar: True</p>
+                {% elif pa.fbs == 0 %}
+                  <p>Fasting Blood Sugar: False</p>
+                {% endif %}
+
+                {% if pa.restecg == 0 %}
+                  <p>Resting ECG Results: Normal</p>
+                {% elif pa.restecg == 1 %}
+                  <p>Resting ECG Results: ST-T Wave Abnormality</p>
+                {% elif pa.restecg == 2 %}
+                  <p>Resting ECG Results: Probable or Definite Left Ventricular Hypertrophy</p>
+                {% endif %}
+
+
+                {% if pa.thalach == Nan %}
+                {% else %}
+                  <p>Maximum Heart Rate Achieved: {{pa.thalach}}</p>
+                {% endif %}
+                
+
+
+                {% if pa.oldpeak == Nan %}
+                {% else %}
+                  <p>ST Depression: {{pa.oldpeak}}</p>
+                {% endif %}
+                
+
+
+                {% if pa.slope == 1 %}
+                  <p>Slope of Peak Exercise ST Segment: Upsloping</p>
+                {% elif pa.slope == 2 %}
+                  <p>Slope of Peak Exercise ST Segment: Flat</p>
+                {% elif pa.slope == 3 %}
+                  <p>Slope of Peak Exercise ST Segment: Down Sloping</p>
+                {% endif %}
+
+
+                {% if pa.ca == Nan %}
+                {% else %}
+                  <p>Number of Major Vessels: {{pa.ca}}</p>
+                {% endif %}
+                
+
+
+                {% if pa.exang == 1 %}
+                  <p>Exercise Induced Angina: Yes</p>
+                {% elif pa.exang == 0 %}
+                  <p>Exercise Induced Angina: No</p>
+                {% endif %}
+
+                {% if pa.thal == 0 %}
+                  <p>Results of Nuclear Stress Test: Normal</p>
+                {% elif pa.thal == 1 %}
+                  <p>Results of Nuclear Stress Test: Fixed Defect</p>
+                {% elif pa.thal == 2 %}
+                  <p>Results of Nuclear Stress Test: Reversible Defect</p>
+                {% endif %}
+
+
+                <p>predict: {{pa.predict}}</p>
+
+              </div>
+            </li>
+
+            {% endfor %}
+
+            
+      
+            
+          </ul>
+        {% else %}
+          <h4 class="alert-simple alert-danger" style="margin-bottom: 20px; margin-top:30px; padding: 5px;"> 
+            You must be
+            <a href="{% url 'Login' %}" style="color: black;">Logged In</a>
+          </h4>
+        {% endif %}
+        
+      </div>
+    <script src="{% static 'JS/_Navbar.js' %}"></script>
+    <script src="{% static 'JS/History.js' %}"></script>
+    <script src="{% static 'JS/alert.js' %}"></script>
+</body>
