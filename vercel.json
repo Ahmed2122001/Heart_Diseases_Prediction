@@ -6,12 +6,7 @@
         "use": "@ardnt/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
-        {
-        "src": "Heart_Diseases_Prediction/wsgi.py",
-        "use": "@ardnt/vercel-python-wsgi",
-        "output": "Heart_Diseases_Prediction/wsgi.py",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    },
+        
     {
         "src": "build_files.sh",
         "use":"@vercel/static-build",
@@ -20,8 +15,12 @@
         }
         
     },
-    { "src": "path/to/your/app", "use": "@vercel/python-runtime" },
-    { "src": "path/to/your/app", "use": "python3.9" }
+    {
+        "src": "Heart_Diseases_Prediction/wsgi.py",
+        "use": "@ardnt/vercel-python-wsgi",
+        "output": "Heart_Diseases_Prediction/wsgi.py",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
 ],
     "routes": [
         {
